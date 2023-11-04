@@ -1,10 +1,13 @@
 import { Outlet } from "react-router-dom";
+import { Navbar } from "./Navbar";
 
 export const AppLayout = () => {
   return (
-    <div className="text-4xl text-indigo-800 font-bold">
-      AppLayout
-      <Outlet />
+    <div>
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 };
