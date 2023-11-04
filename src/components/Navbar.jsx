@@ -9,7 +9,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <header className="h-20 px-10 flex items-center justify-between bg-violet-400">
+    <header className="h-20 px-10 flex items-center justify-between bg-violet-500 text-white">
       <div className="text-2xl font-bold">LOGO</div>
       <nav>
         <ul className="flex items-center space-x-10">
