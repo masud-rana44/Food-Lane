@@ -20,7 +20,7 @@ const Foods = () => {
   if (isPending) return <div>Loading...</div>;
 
   // TODO: count of foods changes dynamically
-  const totalPages = Math.ceil(10 / pageSize);
+  const totalPages = Math.ceil(11 / pageSize);
 
   return (
     <div className="mt-14 container mx-auto">

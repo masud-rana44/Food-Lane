@@ -32,12 +32,12 @@ export const User = () => {
                 to="/favorites"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
-                Favorites
+                My added food
               </Link>
             </li>
             <li>
               <Link
-                to="/foods/new"
+                to="/foods/user/new"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 Add new food

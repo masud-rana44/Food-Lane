@@ -5,11 +5,7 @@ import { Link, useParams } from "react-router-dom";
 const FoodDetails = () => {
   const { id } = useParams();
 
-  const {
-    data: food,
-    isPending,
-    error,
-  } = useQuery({
+  const { data: food, isPending } = useQuery({
     queryKey: ["food", "id"],
     queryFn: () => getFoodById(id),
   });

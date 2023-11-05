@@ -11,6 +11,7 @@ import FoodDetails from "../pages/foodDetails/FoodDetails";
 import Order from "../pages/order/Order";
 import Orders from "../pages/orders/Orders";
 import { PrivateRoute } from "../components/PrivateRoute";
+import NewFood from "../pages/newFood/NewFood";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/foods",
         element: <Foods />,
+      },
+      {
+        path: "/foods/user/new",
+        element: <NewFood />,
       },
       {
         path: "/foods/:id",
