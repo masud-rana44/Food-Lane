@@ -29,36 +29,36 @@ export const User = () => {
           >
             <li>
               <Link
-                to="/"
+                to="/favorites"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
-                Dashboard
+                Favorites
               </Link>
             </li>
             <li>
               <Link
-                to="/"
+                to="/foods/new"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
-                Settings
+                Add new food
               </Link>
             </li>
             <li>
               <Link
-                to="/"
+                to="/orders"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
-                Earnings
+                Orders
               </Link>
             </li>
             <li>
-              <Link
+              <button
                 to="/"
                 onClick={logOut}
-                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                className="block px-4 py-2 bg-violet-500 text-white w-full rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 Sign out
-              </Link>
+              </button>
             </li>
           </ul>
         </div>
