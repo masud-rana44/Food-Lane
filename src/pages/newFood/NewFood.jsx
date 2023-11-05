@@ -48,6 +48,7 @@ const NewFood = () => {
       imageUrl,
       orderCount: 0,
     });
+    form.reset();
   };
 
   return (

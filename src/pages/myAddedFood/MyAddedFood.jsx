@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useFoodsByEmail } from "./useFoodsByEmail";
+import { useDeleteFood } from "./useDeleteFood";
 
 const MyAddedFood = () => {
   const { email } = useParams();
   const { foods, isPending } = useFoodsByEmail(email);
+  const { deleteFood } = useDeleteFood();
 
   if (isPending) return <div>Loading...</div>;
 
@@ -56,13 +58,19 @@ const MyAddedFood = () => {
               <td className="px-6 py-4">{food.name}</td>
               <td className="px-6 py-4">{food.category}</td>
               <td className="px-6 py-4">${food.price}</td>
-              <td className="px-6 py-4 text-right">
+              <td className="px-6 py-4 text-right space-x-6">
                 <a
                   href="#"
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
                   Edit
                 </a>
+                <button
+                  onClick={() => deleteFood(food._id)}
+                  className="font-medium text-red-600 dark:text-red-500 hover:underline"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

@@ -65,12 +65,13 @@ export const ImageUpload = ({ url, setUrl }) => {
         </label>
 
         <div className="flex justify-center mt-5 mx-2 max-w-xs">
-          {preview && <img src={preview} alt="preview" className="w-full" />}
+          {preview && <img src={preview} alt="preview" className="max-w-sm" />}
         </div>
       </header>
       <div className="flex justify-end pb-8 pt-6 gap-4">
         <button
           onClick={handleUpload}
+          type="button"
           className="rounded-sm px-3 py-1 bg-blue-700 hover:bg-blue-500 text-white focus:shadow-outline focus:outline-none disabled:cursor-not-allowed"
           disabled={!image}
         >
@@ -78,6 +79,7 @@ export const ImageUpload = ({ url, setUrl }) => {
         </button>
         <button
           onClick={handleResetClick}
+          type="button"
           className="rounded-sm px-3 py-1 bg-red-700 hover:bg-red-500 text-white focus:shadow-outline focus:outline-none"
         >
           Reset
