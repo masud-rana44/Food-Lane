@@ -8,7 +8,7 @@ export function useFoods() {
     error,
   } = useQuery({
     queryKey: ["foods"],
-    queryFn: getFoods,
+    queryFn: () => [],
   });
 
   return { foods, isPending, error };
