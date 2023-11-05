@@ -29,7 +29,7 @@ export const User = () => {
           >
             <li>
               <Link
-                to="/favorites"
+                to={`/foods/users/${user.email}`}
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 My added food

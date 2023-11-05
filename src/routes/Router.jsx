@@ -12,6 +12,7 @@ import Order from "../pages/order/Order";
 import Orders from "../pages/orders/Orders";
 import { PrivateRoute } from "../components/PrivateRoute";
 import NewFood from "../pages/newFood/NewFood";
+import MyAddedFood from "../pages/myAddedFood/MyAddedFood";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/foods/user/new",
         element: <NewFood />,
+      },
+      {
+        path: "/foods/users/:email",
+        element: <MyAddedFood />,
       },
       {
         path: "/foods/:id",
