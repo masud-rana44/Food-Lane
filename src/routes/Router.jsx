@@ -9,6 +9,8 @@ import Error from "../pages/error/Error";
 import Foods from "../pages/Foods/Foods";
 import FoodDetails from "../pages/foodDetails/FoodDetails";
 import Order from "../pages/order/Order";
+import Orders from "../pages/orders/Orders";
+import { PrivateRoute } from "../components/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +30,20 @@ const router = createBrowserRouter([
         element: <FoodDetails />,
       },
       {
+        path: "/orders",
+        element: (
+          <PrivateRoute>
+            <Orders />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/orders/new",
-        element: <Order />,
+        element: (
+          <PrivateRoute>
+            <Order />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/blogs",

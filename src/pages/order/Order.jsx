@@ -1,10 +1,14 @@
 import { useLocation } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useCreateOrder } from "./useCreateOrder";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Order = () => {
-  const { state } = useLocation();
-  const { food } = state;
+  const {
+    state: { food },
+  } = useLocation();
+  const { user } = useAuth();
+
   const { createOrder, isPending } = useCreateOrder();
 
   const handleSubmit = (e) => {
@@ -86,7 +90,7 @@ const Order = () => {
             id="buyerName"
             name="buyerName"
             type="text"
-            value="Masud"
+            value={user.displayName}
             readOnly
             className="py-2 px-4 bg-violet-200 border-violet-500"
           />
@@ -99,12 +103,15 @@ const Order = () => {
             id="buyerEmail"
             name="buyerEmail"
             type="email"
-            value="mdmasud@gamil.com"
+            value={user.email}
             readOnly
             className="py-2 px-4 bg-violet-200 border-violet-500"
           />
         </div>
-        <button className="bg-violet-500 hover:bg-violet-600 transition-colors py-2 px-4 rounded-md text-white font-medium">
+        <button
+          disabled={isPending}
+          className="bg-violet-500 hover:bg-violet-600 transition-colors py-2 px-4 rounded-md text-white font-medium"
+        >
           Purchase
         </button>
       </form>
