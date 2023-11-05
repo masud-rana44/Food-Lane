@@ -6,14 +6,17 @@ import { Toaster } from "react-hot-toast";
 
 import router from "./routes/Router";
 import "./index.css";
+import { AuthProvider } from "./contexts/authContext";
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <Toaster />
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <Toaster />
+        <RouterProvider router={router} />
+      </AuthProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

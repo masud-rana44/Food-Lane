@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import { User } from "./User";
 
 export const Navbar = () => {
+  const { user } = useAuth();
+
   const links = [
     { to: "/foods", text: "Foods" },
     { to: "/blogs", text: "Blogs" },
@@ -22,6 +26,7 @@ export const Navbar = () => {
           ))}
         </ul>
       </nav>
+      <User />
     </header>
   );
 };
