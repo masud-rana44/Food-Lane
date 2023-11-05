@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getFoods } from "../../api/apiFood";
+import { getFoods } from "../api/apiFood";
 
 export function useFoods() {
   const {
@@ -8,6 +8,8 @@ export function useFoods() {
     error,
   } = useQuery({
     queryKey: ["foods"],
+
+    // get the top rated foods
     queryFn: () => [],
   });
 

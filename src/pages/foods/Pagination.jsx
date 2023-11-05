@@ -9,11 +9,19 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
   return (
     <div className="w-full text-center mt-10 space-x-4">
-      <button onClick={handlePrevPage} className="p-2 bg-violet-200">
+      <button
+        disabled={currentPage === 1}
+        onClick={handlePrevPage}
+        className="p-2 bg-violet-200 disabled:opacity-50"
+      >
         Prev
       </button>
       {currentPage}
-      <button onClick={handleNextPage} className="p-2 bg-violet-200">
+      <button
+        disabled={currentPage === totalPages}
+        onClick={handleNextPage}
+        className="p-2 bg-violet-200 disabled:opacity-50"
+      >
         Next
       </button>
     </div>

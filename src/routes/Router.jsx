@@ -7,6 +7,7 @@ import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import Error from "../pages/error/Error";
 import Foods from "../pages/Foods/Foods";
+import FoodDetails from "../pages/foodDetails/FoodDetails";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/foods",
         element: <Foods />,
+      },
+      {
+        path: "/foods/:id",
+        element: <FoodDetails />,
       },
       {
         path: "/blogs",

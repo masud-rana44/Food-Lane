@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const FoodCard = ({ food }) => {
   return (
     <div className="group rounded-xl overflow-hidden">
@@ -12,12 +14,15 @@ export const FoodCard = ({ food }) => {
         <h3 className="text-xl font-medium mb-4">{food.name}</h3>
         <div className="flex items-center justify-between text-gray-700">
           <span>{food.category}</span>
+          <span>{food.quantity} items</span>
           <span>${food.price}</span>
         </div>
 
-        <button className="mt-6 bg-violet-500 hover:bg-violet-600 transition-colors py-2 w-full rounded-md text-white font-medium">
-          Explore
-        </button>
+        <Link to={`/foods/${food._id}`}>
+          <button className="mt-6 bg-violet-500 hover:bg-violet-600 transition-colors py-2 w-full rounded-md text-white font-medium">
+            Explore
+          </button>
+        </Link>
       </div>
     </div>
   );

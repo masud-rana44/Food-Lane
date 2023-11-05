@@ -1,5 +1,5 @@
 import { SectionHeading } from "./SectionHeading";
-import { useFoods } from "./useFoods";
+import { useFoods } from "../../hooks/useFoods.js";
 
 export const TopFoods = () => {
   const { foods, isPending, error } = useFoods();
