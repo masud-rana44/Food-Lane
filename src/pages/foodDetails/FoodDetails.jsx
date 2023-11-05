@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getFoodById } from "../../api/apiFood";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const FoodDetails = () => {
   const { id } = useParams();
@@ -44,9 +44,11 @@ const FoodDetails = () => {
           facilis.
         </div>
 
-        <button className="mt-6 bg-violet-500 hover:bg-violet-600 transition-colors py-2 w-full rounded-md text-white font-medium">
-          Order
-        </button>
+        <Link to="/orders/new" state={{ food }}>
+          <button className="mt-6 bg-violet-500 hover:bg-violet-600 transition-colors py-2 w-full rounded-md text-white font-medium">
+            Order
+          </button>
+        </Link>
       </div>
     </div>
   );
