@@ -17,10 +17,10 @@ const NewFood = () => {
     const description = form.description.value;
     const category = form.category.value;
     const origin = form.origin.value;
-    const price = form.price.value;
-    const quantity = form.quantity.value;
-    const sellerName = user.displayName;
-    const sellerEmail = user.email;
+    const price = Number(form.price.value);
+    const quantity = Number(form.quantity.value);
+    const sellerName = user?.displayName;
+    const sellerEmail = user?.email;
 
     if (
       !name ||
@@ -132,7 +132,7 @@ const NewFood = () => {
             id="buyerName"
             name="buyerName"
             type="text"
-            value={user.displayName}
+            value={user?.displayName}
             readOnly
             className="py-2 px-4 bg-violet-200 border-violet-500"
           />
@@ -145,7 +145,7 @@ const NewFood = () => {
             id="buyerEmail"
             name="buyerEmail"
             type="email"
-            value={user.email}
+            value={user?.email}
             readOnly
             className="py-2 px-4 bg-violet-200 border-violet-500"
           />

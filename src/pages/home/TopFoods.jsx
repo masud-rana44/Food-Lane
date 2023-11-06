@@ -1,8 +1,8 @@
 import { SectionHeading } from "./SectionHeading";
-import { useFoods } from "../../hooks/useFoods.js";
+import { useTopFood } from "./useTopFood.js";
 
 export const TopFoods = () => {
-  const { foods, isPending, error } = useFoods();
+  const { foods, isPending } = useTopFood();
 
   if (isPending) return <div>Loading...</div>;
 

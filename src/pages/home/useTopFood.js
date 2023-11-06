@@ -1,16 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import { getFoods } from "../api/apiFood";
+import { getTopSellingFood } from "../../api/apiFood";
 
-export function useFoods() {
+export function useTopFood() {
   const {
     data: foods,
     isPending,
     error,
   } = useQuery({
     queryKey: ["foods"],
-
-    // get the top rated foods
-    queryFn: () => [],
+    queryFn: getTopSellingFood,
   });
 
   return { foods, isPending, error };

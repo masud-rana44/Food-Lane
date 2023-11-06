@@ -24,21 +24,13 @@ const FoodDetails = () => {
       <div className="flex flex-col p-4 bg-violet-50 z-10">
         <h3 className="text-xl font-medium mb-4">{food.name}</h3>
         <div className="flex items-center justify-between text-gray-700">
+          <p>Made By: {food.sellerName}</p>
           <span>{food.category}</span>
           <span>{food.quantity} items</span>
           <span>{food.origin}</span>
           <span>${food.price}</span>
         </div>
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eos beatae
-          doloribus quae, architecto, cumque minus, provident eaque est a sequi!
-          Non dicta et aliquam iusto ipsa impedit quidem sed!. Lorem ipsum
-          dolor, sit amet consectetur adipisicing elit. Perspiciatis rem aperiam
-          quisquam nulla dolore, impedit optio fugiat voluptatibus porro odio
-          ratione dolorum consectetur deleniti, voluptate alias? Suscipit aut
-          odit saepe temporibus unde nesciunt ex, dolores laborum vitae nisi eum
-          facilis.
-        </div>
+        <div>{food.description}</div>
 
         <Link to="/orders/new" state={{ food }}>
           <button className="mt-6 bg-violet-500 hover:bg-violet-600 transition-colors py-2 w-full rounded-md text-white font-medium">

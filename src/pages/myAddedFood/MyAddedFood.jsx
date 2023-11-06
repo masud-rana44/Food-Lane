@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useFoodsByEmail } from "./useFoodsByEmail";
 import { useDeleteFood } from "./useDeleteFood";
 
@@ -59,12 +59,12 @@ const MyAddedFood = () => {
               <td className="px-6 py-4">{food.category}</td>
               <td className="px-6 py-4">${food.price}</td>
               <td className="px-6 py-4 text-right space-x-6">
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
                   Edit
-                </a>
+                </Link>
                 <button
                   onClick={() => deleteFood(food._id)}
                   className="font-medium text-red-600 dark:text-red-500 hover:underline"

@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { Input } from "../../components/Input";
 import { useAuth } from "../../contexts/authContext";
 import { ImageUpload } from "../../components/ImageUpload";
+import axios from "axios";
 
 const emailVerification = /\S+@\S+\.\S+/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
@@ -60,6 +61,11 @@ function RegistrationForm() {
     try {
       await registerWithEmail(email, password);
       await profileUpdate(name, url);
+      await axios.post("http://localhost:5000/users", {
+        name,
+        email,
+        imageUrl: url,
+      });
 
       toast.success("Your account has been created successfully");
       navigate(location?.state ? location.state : "/");

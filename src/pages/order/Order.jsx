@@ -19,14 +19,22 @@ const Order = () => {
     const foodId = food._id;
     const name = form.name.value;
     const imageUrl = food.imageUrl;
-    const price = form.price.value;
-    const quantity = form.quantity.value;
-    const buyerName = form.buyerName.value;
-    const buyerEmail = form.buyerEmail.value;
+    const price = Number(form.price.value);
+    const quantity = Number(form.quantity.value);
+    const buyerName = user.displayName;
+    const buyerEmail = user.email;
     const buyingDate = new Date().toISOString();
+
+    if (food.sellerEmail === buyerEmail) {
+      return toast.error("You can't buy your own food");
+    }
 
     if (quantity > food.quantity) {
       return toast.error("You can't buy more than available quantity");
+    }
+
+    if (!name || !price || !quantity) {
+      return toast.error("Please fill all the fields");
     }
 
     createOrder({

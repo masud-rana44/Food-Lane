@@ -13,9 +13,17 @@ export async function getFoodById(id) {
 }
 
 export async function getFoodByEmail(email) {
-  const response = await axios.get(
-    `http://localhost:5000/foods/${email}`
-  );
+  const response = await axios.get(`http://localhost:5000/foods/user/${email}`);
+  return response.data;
+}
+
+export async function getTopSellingFood() {
+  const response = await axios.get("http://localhost:5000/top/foods");
+  return response.data;
+}
+
+export async function getFoodCount() {
+  const response = await axios.get("http://localhost:5000/count/foods");
   return response.data;
 }
 
