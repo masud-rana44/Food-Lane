@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from "../../components/Button";
 
 export const FoodCard = ({ food }) => {
   return (
@@ -19,9 +20,7 @@ export const FoodCard = ({ food }) => {
         </div>
 
         <Link to={`/foods/${food._id}`}>
-          <button className="mt-6 bg-violet-500 hover:bg-violet-600 transition-colors py-2 w-full rounded-md text-white font-medium">
-            Explore
-          </button>
+          <Button label="Explore" />
         </Link>
       </div>
     </div>
