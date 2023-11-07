@@ -1,3 +1,5 @@
+import { GrFormPrevious, GrFormNext } from "react-icons/gr";
+
 export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const handlePrevPage = () => {
     if (currentPage > 1) onPageChange(currentPage - 1);
@@ -7,22 +9,36 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     if (currentPage < totalPages) onPageChange(currentPage + 1);
   };
 
+  const btns = Array.from({ length: totalPages }, (_, i) => i + 1);
+
   return (
-    <div className="w-full text-center mt-10 space-x-4">
+    <div className="w-full flex items-center justify-center mt-10 space-x-4">
       <button
         disabled={currentPage === 1}
         onClick={handlePrevPage}
-        className="p-2 bg-violet-200 disabled:opacity-50"
+        className="w-8 h-8 flex items-center justify-center rounded-full bg-violet-200 disabled:opacity-50"
       >
-        Prev
+        <GrFormPrevious />
       </button>
-      {currentPage}
+
+      {btns.map((btn) => (
+        <button
+          key={btn}
+          onClick={() => onPageChange(btn)}
+          className={`w-8 h-8 flex items-center justify-center rounded-full border  ${
+            currentPage === btn && "border border-primary text-primary"
+          }`}
+        >
+          {btn}
+        </button>
+      ))}
+
       <button
         disabled={currentPage === totalPages}
         onClick={handleNextPage}
-        className="p-2 bg-violet-200 disabled:opacity-50"
+        className="w-8 h-8 flex items-center justify-center rounded-full bg-violet-200 disabled:opacity-50"
       >
-        Next
+        <GrFormNext />
       </button>
     </div>
   );

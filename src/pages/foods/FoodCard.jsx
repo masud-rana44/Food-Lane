@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import Button from "../../components/Button";
+import { AiFillEye } from "react-icons/ai";
 
 export const FoodCard = ({ food }) => {
   return (
-    <div className="group rounded-xl overflow-hidden">
+    <div className="group rounded-md overflow-hidden shadow-md">
       <figure className="overflow-hidden">
         <img
           src={food.imageUrl}
@@ -11,16 +11,20 @@ export const FoodCard = ({ food }) => {
           className="h-[240px] w-full object-cover group-hover:scale-110 transition-all"
         />
       </figure>
-      <div className="flex flex-col p-4 bg-violet-50 z-10">
-        <h3 className="text-xl font-medium mb-4">{food.name}</h3>
-        <div className="flex items-center justify-between text-gray-700">
+      <div className="flex flex-col p-4 z-10">
+        <div className="flex items-center justify-between space-x-4 mb-2">
+          <h3 className="text-xl font-medium text-dark-2">{food.name}</h3>
+          <span className="font-medium text-dark-3">${food.price}</span>
+        </div>
+        <div className="flex items-center justify-between text-dark-3 mb-6">
           <span>{food.category}</span>
           <span>{food.quantity} items</span>
-          <span>${food.price}</span>
         </div>
 
         <Link to={`/foods/${food._id}`}>
-          <Button label="Explore" />
+          <button className="w-full flex items-center gap-x-2">
+            <AiFillEye className="h-4 w-4" /> <span>View Details</span>
+          </button>
         </Link>
       </div>
     </div>
