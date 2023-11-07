@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { User } from "./User";
 import Button from "./Button";
 import { useAuth } from "../contexts/AuthContext";
@@ -6,6 +6,7 @@ import logo from "../assets/logo.png";
 
 export const Navbar = () => {
   const { user } = useAuth();
+  const { pathname } = useLocation();
 
   const links = [
     { to: "/foods", text: "Foods" },
@@ -13,7 +14,11 @@ export const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full h-[70px] z-10">
+    <header
+      className={`fixed top-0 left-0 w-full h-[70px] z-10 ${
+        pathname !== "/" && "bg-white shadow-sm border-b border-gray-200"
+      }`}
+    >
       <div className="container mx-auto px-3 h-full md:px-0 flex items-center justify-between">
         <Link
           to="/"

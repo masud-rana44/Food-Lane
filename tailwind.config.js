@@ -10,6 +10,10 @@ export default {
         "dark-2": "#292929",
         "dark-3": "#666666",
       },
+      fontFamily: {
+        sans: ["Roboto", "sans-serif"],
+        lobster: ["Lobster Two", "sans-serif"],
+      },
     },
   },
   plugins: [],
