@@ -1,12 +1,27 @@
-import { Link } from "react-router-dom";
+import { useNavigate, useRouteError } from "react-router-dom";
+import Button from "../../components/Button";
 
 const Error = () => {
+  const navigate = useNavigate();
+  const error = useRouteError();
+
   return (
-    <div className="min-h-screen flex items-center justify-center flex-col">
-      <h1 className="font-bold text-4xl">Error</h1>
-      <Link to="/" className="block text-2xl text-violet-500 underline">
-        Go back home
-      </Link>
+    <div className=" flex flex-col items-center justify-center h-screen">
+      <img
+        src="https://i.ibb.co/x6D2KS8/404.jpg"
+        alt="Error Image"
+        className="w-auto md:max-w-[300px] mx-auto"
+      />
+      <div className="text-center container mx-auto px-4 md:px-0">
+        <h1 className="text-4xl font-bold text-red-500 mb-4">
+          Oops! Something went wrong
+        </h1>
+        <p className="text-lg  text-gray-600  mb-8">
+          {error?.error?.message ||
+            "We apologize for the inconvenience. Please try again later."}
+        </p>
+        <Button onClick={() => navigate("/")} label="Back to home" />
+      </div>
     </div>
   );
 };

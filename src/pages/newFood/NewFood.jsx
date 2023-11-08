@@ -3,6 +3,9 @@ import { useAuth } from "../../contexts/AuthContext";
 import { ImageUpload } from "../../components/ImageUpload";
 import toast from "react-hot-toast";
 import { useCreateFood } from "./useCreateFood";
+import { FormInput } from "../../components/FormInput";
+import Button from "../../components/Button";
+import { FormTextarea } from "../../components/FormTextarea";
 
 const NewFood = () => {
   const { user } = useAuth();
@@ -52,110 +55,30 @@ const NewFood = () => {
   };
 
   return (
-    <div className="mt-10">
-      <form onSubmit={handleSubmit} className="max-w-5xl mx-auto space-y-2">
+    <div className="mt-28">
+      <form onSubmit={handleSubmit} className="max-w-5xl mx-auto space-y-4">
         <ImageUpload url={imageUrl} setUrl={setImageUrl} />
-        <div className="space-x-4">
-          <label htmlFor="name" className="w-52">
-            Food Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            className="py-2 px-4 bg-violet-200 border-violet-500"
-          />
-        </div>
-        <div className="space-x-4">
-          <label htmlFor="description" className="w-52">
-            Food Description
-          </label>
-          <textarea
-            id="description"
-            name="description"
-            className="py-2 px-4 bg-violet-200 border-violet-500"
-          />
-        </div>
-        <div className="space-x-4">
-          <label htmlFor="category" className="w-52">
-            Food Category
-          </label>
-          <input
-            id="category"
-            name="category"
-            type="text"
-            className="py-2 px-4 bg-violet-200 border-violet-500"
-          />
-        </div>
-        <div className="space-x-4">
-          <label htmlFor="origin" className="w-52">
-            Food Origin
-          </label>
-          <input
-            id="origin"
-            name="origin"
-            type="text"
-            className="py-2 px-4 bg-violet-200 border-violet-500"
-          />
-        </div>
+        <FormInput id="name" label="Food Name" />
+        <FormTextarea id="description" label="Food Description" />
+        <FormInput id="category" label="Food Category" />
+        <FormInput id="origin" label="Food Origin" />
+        <FormInput id="price" label="Price" type="number" step="any" />
+        <FormInput id="quantity" label="Quantity" type="number" step="any" />
 
-        <div className="space-x-4">
-          <label htmlFor="price" className="w-52">
-            Price
-          </label>
-          <input
-            id="price"
-            name="price"
-            type="number"
-            step="any"
-            className="py-2 px-4 bg-violet-200 border-violet-500"
-          />
-        </div>
-        <div className="space-x-4">
-          <label htmlFor="quantity" className="w-52">
-            Quantity
-          </label>
-          <input
-            id="quantity"
-            name="quantity"
-            type="number"
-            step="any"
-            className="py-2 px-4 bg-violet-200 border-violet-500"
-          />
-        </div>
+        <FormInput
+          id="sellerName"
+          label="User Name"
+          readOnly
+          defaultValue={user.displayName}
+        />
+        <FormInput
+          id="sellerEmail"
+          label="Seller Email"
+          defaultValue={user.email}
+          readOnly
+        />
 
-        <div className="space-x-4">
-          <label htmlFor="buyerName" className="w-52">
-            User Name
-          </label>
-          <input
-            id="buyerName"
-            name="buyerName"
-            type="text"
-            value={user?.displayName}
-            readOnly
-            className="py-2 px-4 bg-violet-200 border-violet-500"
-          />
-        </div>
-        <div className="space-x-4">
-          <label htmlFor="buyerEmail" className="w-52">
-            User Email
-          </label>
-          <input
-            id="buyerEmail"
-            name="buyerEmail"
-            type="email"
-            value={user?.email}
-            readOnly
-            className="py-2 px-4 bg-violet-200 border-violet-500"
-          />
-        </div>
-        <button
-          disabled={isPending}
-          className="bg-violet-500 hover:bg-violet-600 transition-colors py-2 px-4 rounded-md text-white font-medium"
-        >
-          Add Food
-        </button>
+        <Button type="submit" disabled={isPending} label="Add Food" />
       </form>
     </div>
   );

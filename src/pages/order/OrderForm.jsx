@@ -3,7 +3,7 @@ import { toast } from "react-hot-toast";
 import { useAuth } from "../../contexts/AuthContext";
 import Button from "../../components/Button";
 import { useCreateOrder } from "./useCreateOrder";
-import { OrderFormInput } from "./OrderFormInput";
+import { FormInput } from "../../components/FormInput";
 
 export const OrderForm = ({ food }) => {
   const { user } = useAuth();
@@ -50,28 +50,28 @@ export const OrderForm = ({ food }) => {
 
   return (
     <form onSubmit={handleSubmit} className="flex-1 space-y-4">
-      <OrderFormInput id="name" label="Food Name" defaultValue={food.name} />
-      <OrderFormInput
+      <FormInput id="name" label="Food Name" defaultValue={food.name} />
+      <FormInput
         id="price"
         label="Price"
         type="number"
         step="any"
         defaultValue={food.price}
       />
-      <OrderFormInput
+      <FormInput
         id="quantity"
         label="Quantity"
         type="number"
         step="any"
         defaultValue={1}
       />
-      <OrderFormInput
+      <FormInput
         id="buyerName"
         label="Buyer Name"
         readOnly
         defaultValue={user.displayName}
       />
-      <OrderFormInput
+      <FormInput
         id="buyerEmail"
         label="Buyer Email"
         defaultValue={user.email}

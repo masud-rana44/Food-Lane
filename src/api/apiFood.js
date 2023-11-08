@@ -18,8 +18,12 @@ export async function getFoodByEmail(email) {
 }
 
 export async function getTopSellingFood() {
-  const response = await axios.get("http://localhost:5000/top/foods");
-  return response.data;
+  try {
+    const response = await axios.get("http://localhost:5000/top/foods");
+    return response.data;
+  } catch (error) {
+    throw new Error("Top foods could not be loaded.");
+  }
 }
 
 export async function getFoodCount() {

@@ -9,18 +9,15 @@ const MyAddedFood = () => {
 
   if (isPending) return <div>Loading...</div>;
 
+  if (foods.length === 0) return <p className="mt-28">No food available.</p>;
+
   return (
-    <div className="relative container mt-10 mx-auto overflow-x-auto shadow-md sm:rounded-lg">
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <caption className="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-          Our products
-          <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-            Browse a list of Flowbite products designed to help you work and
-            play, stay organized, get answers, keep in touch, grow your
-            business, and more.
-          </p>
+    <div className="relative container mt-28 mx-auto overflow-x-auto  ">
+      <table className="w-full text-sm text-left text-gray-500 ">
+        <caption className="p-5 text-lg font-semibold text-left text-gray-900 bg-white ">
+          Your Added Food
         </caption>
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50  ">
           <tr>
             <th scope="col" className="px-6 py-3">
               Image
@@ -41,13 +38,10 @@ const MyAddedFood = () => {
         </thead>
         <tbody>
           {foods.map((food) => (
-            <tr
-              key={food._id}
-              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-            >
+            <tr key={food._id} className="bg-white border-b  ">
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
               >
                 <img
                   src={food.imageUrl}
@@ -61,13 +55,13 @@ const MyAddedFood = () => {
               <td className="px-6 py-4 text-right space-x-6">
                 <Link
                   to="#"
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  className="font-medium text-blue-600  hover:underline"
                 >
                   Edit
                 </Link>
                 <button
                   onClick={() => deleteFood(food._id)}
-                  className="font-medium text-red-600 dark:text-red-500 hover:underline"
+                  className="font-medium text-red-600  hover:underline"
                 >
                   Delete
                 </button>

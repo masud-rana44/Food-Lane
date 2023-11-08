@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { User } from "./User";
 import Button from "./Button";
 import { useAuth } from "../contexts/AuthContext";
-import logo from "../assets/logo.png";
+import { Logo } from "./Logo";
 
 export const Navbar = () => {
   const { user } = useAuth();
@@ -20,14 +20,7 @@ export const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-3 h-full md:px-0 flex items-center justify-between">
-        <Link
-          to="/"
-          className="text-2xl font-bold text-primary flex items-center space-x-1"
-        >
-          <img src={logo} alt="Logo" className="h-12" />
-          <span>Food Lane</span>
-        </Link>
-
+        <Logo />
         <nav className="space-x-10 flex items-center ">
           <ul className="flex items-center space-x-10 text-primary-dark">
             {links.map((link) => (
@@ -39,7 +32,13 @@ export const Navbar = () => {
               </li>
             ))}
           </ul>
-          {user ? <User /> : <Button label="Login" />}
+          {user ? (
+            <User />
+          ) : (
+            <Link to="/login">
+              <Button label="Login" />
+            </Link>
+          )}
         </nav>
       </div>
     </header>

@@ -38,7 +38,7 @@ export const ImageUpload = ({ url, setUrl }) => {
     <div>
       <header>
         <p>
-          <span>Click on upload a file</span>
+          <span>Food Image</span>
         </p>
         <input
           id="hidden-input"
@@ -47,16 +47,16 @@ export const ImageUpload = ({ url, setUrl }) => {
           onChange={handleUpload}
           accept="image/*"
         />
-        <label htmlFor="hidden-input">
+        <label htmlFor="hidden-input" className="inline-block">
           {loading && (
             <div className="flex items-center justify-center gap-2">
-              <div className="border-t-transparent border-solid animate-spin rounded-full border-blue-400 border-4 h-6 w-6"></div>
+              <div className="border-t-transparent border-solid animate-spin rounded-full border-blue-400 border-3 h-6 w-6"></div>
             </div>
           )}
-          <div className="mt-2 border-4 border-dashed rounded-sm px-3 py-1 bg-gray-200 hover:bg-gray-300 focus:shadow-outline focus:outline-none">
+          <div className="mt-2 border-[3px] border-dashed rounded-xl p-4  focus:shadow-outline focus:outline-none">
             <img
               src={url ? url : placeholder}
-              className="h-[160px] w-[160px] object-cover"
+              className="h-[160px] w-[160px] object-cover rounded-md"
             />
           </div>
         </label>
