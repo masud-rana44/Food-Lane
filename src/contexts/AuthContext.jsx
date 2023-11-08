@@ -12,6 +12,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import app from "../firebase/firebase.config";
+import axios from "axios";
 
 const AuthContext = createContext();
 const auth = getAuth(app);
@@ -22,13 +23,43 @@ function AuthProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      const userEmail = currentUser?.email || user?.email;
+      const loggedUser = { email: userEmail };
+      setUser(currentUser);
       setIsLoading(false);
+      // if user exists then issue a token
+      if (currentUser) {
+        axios
+          .post("https://resturent-server.vercel.app/jwt", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("token response", res.data);
+          });
+      } else {
+        axios
+          .post("https://resturent-server.vercel.app/logout", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          });
+      }
     });
+    return () => {
+      return unsubscribe();
+    };
+  }, [user?.email]);
 
-    return () => unsubscribe();
-  }, []);
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
+  //     setUser(user);
+  //     setIsLoading(false);
+  //   });
+
+  //   return () => unsubscribe();
+  // }, []);
 
   const registerWithEmail = (email, password) => {
     setIsLoading(true);

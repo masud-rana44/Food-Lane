@@ -59,13 +59,26 @@ function RegistrationForm() {
     }
 
     try {
-      await registerWithEmail(email, password);
+      const res = await registerWithEmail(email, password);
       await profileUpdate(name, url);
       await axios.post("https://resturent-server.vercel.app/users", {
         name,
         email,
         imageUrl: url,
       });
+
+      // create the jwt
+      fetch("https://resturent-server.vercel.app/jwt", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: res.user.email,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
 
       toast.success("Your account has been created successfully");
       navigate(location?.state ? location.state : "/");

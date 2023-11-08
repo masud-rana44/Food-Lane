@@ -11,7 +11,7 @@ const Orders = () => {
 
   if (isPending) return <div>Loading...</div>;
 
-  if (orders.length === 0)
+  if (orders?.length === 0)
     return (
       <div className="mt-28">
         <EmptyMessage message="You haven't any order yet." />
@@ -24,7 +24,7 @@ const Orders = () => {
         <meta charSet="utf-8" />
         <title>Food Lane &mdash; My Orders</title>
       </Helmet>
-      {orders.map((order) => (
+      {orders?.map((order) => (
         <div
           key={order._id}
           className="w-full flex items-center justify-between space-x-8"

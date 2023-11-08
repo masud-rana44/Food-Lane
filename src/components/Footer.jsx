@@ -10,8 +10,9 @@ export const Footer = () => {
             <Logo />
 
             <p className="text-base leading-relaxed text-gray-600 mt-7">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
+              Our restaurant is a culinary haven that embraces a passion for
+              delicious food and exceptional service. We offer a diverse menu
+              that caters to a variety of tastes.
             </p>
 
             <ul className="flex items-center space-x-3 mt-9">
