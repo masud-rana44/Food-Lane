@@ -5,8 +5,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Input } from "../../components/Input";
 import { useAuth } from "../../contexts/authContext";
-import { ImageUpload } from "../../components/ImageUpload";
 import axios from "axios";
+import { Separator } from "../../components/Separetor";
 
 const emailVerification = /\S+@\S+\.\S+/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
@@ -21,10 +21,10 @@ function RegistrationForm() {
     isLoading,
     setIsLoading,
   } = useAuth();
-  const [url, setUrl] = useState("");
 
   const [form, setForm] = useState({
     name: "",
+    url: "",
     email: "",
     password: "",
   });
@@ -36,7 +36,7 @@ function RegistrationForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { name, email, password } = form;
+    const { name, email, password, url } = form;
 
     if (!name || !url || !email || !password) {
       return toast.error("Missing required fields.");
@@ -90,18 +90,25 @@ function RegistrationForm() {
   };
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 text-slate-800 dark:text-gray-100">
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 text-slate-800 ">
       <h2 className="text-center text-2xl font-bold leading-9 tracking-tight ">
         Create your account
       </h2>
       <form onSubmit={handleSubmit} className="space-y-5 mt-10">
-        <ImageUpload url={url} setUrl={setUrl} />
         <Input
           id="name"
           label="Your name"
           type="text"
           disabled={isLoading}
           value={form.name}
+          onChange={handleChange}
+        />
+        <Input
+          id="url"
+          label="Your image"
+          type="text"
+          disabled={isLoading}
+          value={form.url}
           onChange={handleChange}
         />
         <Input
@@ -124,24 +131,24 @@ function RegistrationForm() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-gradient-to-r from-[#66b8dd] via-[#8e7fe9] to-[#e17497]"
+          className="w-full rounded-sm text-white  bg-primary py-1 "
         >
           Register
         </button>
         <div className="mt-6">
           <div className="flex h-8 items-center space-x-6 mb-3">
-            <hr />
+            <Separator />
             <p className="flex-1 basis-[150%] text-sm font-medium">
               Or continue with
             </p>
-            <hr />
+            <Separator />
           </div>
           <div className="flex items-center gap-x-4 mb-6">
             <button
               onClick={handleGoogleRegistration}
               type="button"
               disabled={isLoading}
-              className="w-full justify-center flex items-center gap-x-2 bg-[#4285f4] hover:bg-[#4285f4]/90"
+              className="w-full justify-center flex items-center gap-x-2 bg-[#4285f4] hover:bg-[#4285f4]/90 py-1 rounded-sm"
             >
               <AiOutlineGoogle /> Google
             </button>
@@ -149,10 +156,7 @@ function RegistrationForm() {
 
           <p className="text-sm text-center font-medium">
             Already have an account?{" "}
-            <Link
-              to="/login"
-              className="text-indigo-700 dark:text-indigo-500 hover:underline"
-            >
+            <Link to="/login" className="text-indigo-700  hover:underline">
               Login
             </Link>
           </p>

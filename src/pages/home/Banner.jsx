@@ -21,8 +21,8 @@ export const Banner = () => {
             dressing.
           </p>
           <div className="mt-10">
-            <Link to="/foods/654b5128972adf9307210ad2">
-              <Button label="Order now" />
+            <Link to="/foods">
+              <Button label="See All" />
             </Link>
           </div>
         </div>

@@ -9,9 +9,12 @@ export const Navbar = () => {
   const { pathname } = useLocation();
 
   const links = [
+    { to: "/", text: "Home" },
     { to: "/foods", text: "Foods" },
     { to: "/blogs", text: "Blogs" },
   ];
+
+  console.log(pathname);
 
   return (
     <header
@@ -26,9 +29,14 @@ export const Navbar = () => {
             {links.map((link) => (
               <li
                 key={link.to}
-                className="font-xl font-medium hover:text-secondary transition-colors"
+                className={`font-xl font-medium hover:text-primary transition-colors}`}
               >
-                <Link to={link.to}>{link.text}</Link>
+                <Link
+                  className={pathname === link.to && "text-primary"}
+                  to={link.to}
+                >
+                  {link.text}
+                </Link>
               </li>
             ))}
           </ul>

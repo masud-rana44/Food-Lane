@@ -1,5 +1,6 @@
 import { useNavigate, useRouteError } from "react-router-dom";
 import Button from "../../components/Button";
+import { Helmet } from "react-helmet";
 
 const Error = () => {
   const navigate = useNavigate();
@@ -7,6 +8,10 @@ const Error = () => {
 
   return (
     <div className=" flex flex-col items-center justify-center h-screen">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Food Lane &mdash; Error</title>
+      </Helmet>
       <img
         src="https://i.ibb.co/x6D2KS8/404.jpg"
         alt="Error Image"

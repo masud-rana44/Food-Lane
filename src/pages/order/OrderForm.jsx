@@ -4,6 +4,8 @@ import { useAuth } from "../../contexts/AuthContext";
 import Button from "../../components/Button";
 import { useCreateOrder } from "./useCreateOrder";
 import { FormInput } from "../../components/FormInput";
+import { ErrorMessage } from "../../components/ErrorMessage";
+import { Link } from "react-router-dom";
 
 export const OrderForm = ({ food }) => {
   const { user } = useAuth();
@@ -29,7 +31,7 @@ export const OrderForm = ({ food }) => {
     }
 
     if (quantity > food.quantity) {
-      return toast.error("You can't buy more than available quantity");
+      return toast.error(`${quantity} items are not available`);
     }
 
     if (!name || !price || !quantity) {
@@ -62,7 +64,6 @@ export const OrderForm = ({ food }) => {
         id="quantity"
         label="Quantity"
         type="number"
-        step="any"
         defaultValue={1}
       />
       <FormInput
@@ -78,7 +79,7 @@ export const OrderForm = ({ food }) => {
         readOnly
       />
 
-      <Button disabled={isPending} label="Place order" />
+      {food.quantity > 0 && <Button disabled={isPending} label="Place order" />}
     </form>
   );
 };

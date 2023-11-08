@@ -1,6 +1,13 @@
+import { Helmet } from "react-helmet";
+
 const Blogs = () => {
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="mt-20 min-h-screen">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Food Lane &mdash; Blogs</title>
+      </Helmet>
+
       <div className="max-w-7xl mx-auto py-12 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-8">
           One way data binding

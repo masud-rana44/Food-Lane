@@ -1,6 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import { useFoodsByEmail } from "./useFoodsByEmail";
 import { useDeleteFood } from "./useDeleteFood";
+import { Helmet } from "react-helmet";
+import { EmptyMessage } from "../../components/EmptyMessage";
 
 const MyAddedFood = () => {
   const { email } = useParams();
@@ -9,10 +11,19 @@ const MyAddedFood = () => {
 
   if (isPending) return <div>Loading...</div>;
 
-  if (foods.length === 0) return <p className="mt-28">No food available.</p>;
+  if (foods.length === 0)
+    return (
+      <div className="mt-28">
+        <EmptyMessage message="No food available" />
+      </div>
+    );
 
   return (
     <div className="relative container mt-28 mx-auto overflow-x-auto  ">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Food Lane &mdash; My Added Foods</title>
+      </Helmet>
       <table className="w-full text-sm text-left text-gray-500 ">
         <caption className="p-5 text-lg font-semibold text-left text-gray-900 bg-white ">
           Your Added Food

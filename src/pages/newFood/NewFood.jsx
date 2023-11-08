@@ -6,6 +6,7 @@ import { useCreateFood } from "./useCreateFood";
 import { FormInput } from "../../components/FormInput";
 import Button from "../../components/Button";
 import { FormTextarea } from "../../components/FormTextarea";
+import { Helmet } from "react-helmet";
 
 const NewFood = () => {
   const { user } = useAuth();
@@ -56,6 +57,10 @@ const NewFood = () => {
 
   return (
     <div className="mt-28">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Food Lane &mdash; Add New Food</title>
+      </Helmet>
       <form onSubmit={handleSubmit} className="max-w-5xl mx-auto space-y-4">
         <ImageUpload url={imageUrl} setUrl={setImageUrl} />
         <FormInput id="name" label="Food Name" />
@@ -69,12 +74,12 @@ const NewFood = () => {
           id="sellerName"
           label="User Name"
           readOnly
-          defaultValue={user.displayName}
+          defaultValue={user?.displayName}
         />
         <FormInput
           id="sellerEmail"
           label="Seller Email"
-          defaultValue={user.email}
+          defaultValue={user?.email}
           readOnly
         />
 

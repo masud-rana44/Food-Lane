@@ -10,7 +10,7 @@ export function useCreateOrder() {
   } = useMutation({
     mutationFn: createOrderAPI,
     onSuccess: () => {
-      toast.success("Order created successfully");
+      toast.success("Order placed successfully");
       QueryCache.invalidateQueries("orders");
     },
   });

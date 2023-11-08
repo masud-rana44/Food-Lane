@@ -10,12 +10,14 @@ export const TopFoodCard = ({ food }) => {
         <img
           src={imageUrl}
           alt={`Image of ${name}`}
-          className="h-[240px] w-full object-cover group-hover:scale-110 transition-all"
+          className="h-[240px] w-full object-cover group-hover:scale-105 transition-all"
         />
       </div>
       <div className="flex flex-col p-4 bg-violet-50 z-10">
         <div className="flex items-center justify-between space-x-4 mb-2">
-          <h3 className="text-xl font-medium text-dark-2">{name}</h3>
+          <h3 className="text-xl font-medium text-dark-2 group-hover:text-primary transition-colors">
+            {name}
+          </h3>
           <span className="font-medium text-dark-3">${price}</span>
         </div>
         <div className="flex items-center justify-between text-gray-700">

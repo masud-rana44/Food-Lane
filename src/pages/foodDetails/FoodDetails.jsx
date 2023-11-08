@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getFoodById } from "../../api/apiFood";
 import { Link, useParams } from "react-router-dom";
 import Button from "../../components/Button";
+import { Helmet } from "react-helmet";
 
 const FoodDetails = () => {
   const { id } = useParams();
@@ -15,8 +16,12 @@ const FoodDetails = () => {
 
   return (
     <div className="group mt-28  rounded-xl overflow-hidden">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Food Lane &mdash; Food Details</title>
+      </Helmet>
       <div className="container mx-auto px-3 md:px-0 flex items-center flex-col md:flex-row gap-10 md:gap-20">
-        <div className="overflow-hidden flex-2">
+        <div className="overflow-hidden flex-1">
           <img
             src={food.imageUrl}
             alt={`Image of ${food.name}`}
@@ -34,7 +39,7 @@ const FoodDetails = () => {
           </div>
           <p className="text-dark-3 mb-6">{food.description}</p>
 
-          <Link to="/orders/new" state={{ food }}>
+          <Link to={`/orders/new/${food._id}`}>
             <Button label="Order Now" />
           </Link>
         </div>

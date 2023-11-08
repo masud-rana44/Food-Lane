@@ -16,7 +16,7 @@ export const User = () => {
     <div className="relative">
       <button type="button" id="dropdownHoverButton" onClick={toggleDropdown}>
         <img
-          src={user.photoURL}
+          src={user?.photoURL}
           className="h-10 w-10 rounded-full border-[3px] bg-white object-cover cursor-pointer"
         />
       </button>
