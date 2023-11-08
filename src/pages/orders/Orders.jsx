@@ -19,13 +19,16 @@ const Orders = () => {
     );
 
   return (
-    <div className="container mx-auto px-3 md:px-0 mt-20 p-8 space-y-2 ">
+    <div className="container max-w-5xl mx-auto px-3 md:px-0 mt-20 p-8 space-y-2 ">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Food Lane &mdash; My Orders</title>
       </Helmet>
       {orders.map((order) => (
-        <div key={order._id} className="w-full flex space-x-8">
+        <div
+          key={order._id}
+          className="w-full flex items-center justify-between space-x-8"
+        >
           <img
             src={order.imageUrl}
             alt={order.name}
@@ -40,11 +43,8 @@ const Orders = () => {
               <span>${order.price}</span>
             </div>
           </div>
-          <ConfirmDialog>
-            <button
-              // onClick={() => deleteOrder(order._id)}
-              className="text-red-500 ml-auto"
-            >
+          <ConfirmDialog onDelete={() => deleteOrder(order._id)}>
+            <button className="text-red-500 ml-auto">
               <BsTrash />
             </button>
           </ConfirmDialog>

@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import { AppLayout } from "../components/AppLayout";
 import Home from "../pages/home/Home";
 import Blogs from "../pages/blogs/Blogs";
-import Profile from "../pages/profile/Profile";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import Error from "../pages/error/Error";
@@ -13,6 +12,7 @@ import Orders from "../pages/orders/Orders";
 import { PrivateRoute } from "../components/PrivateRoute";
 import NewFood from "../pages/newFood/NewFood";
 import MyAddedFood from "../pages/myAddedFood/MyAddedFood";
+import FoodUpdateForm from "../pages/myAddedFood/FoodUpdateForm";
 
 const router = createBrowserRouter([
   {
@@ -36,12 +36,20 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/foods/users/:email",
-        element: <MyAddedFood />,
+        path: "/foods/users",
+        element: (
+          <PrivateRoute>
+            <MyAddedFood />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/foods/:id",
         element: <FoodDetails />,
+      },
+      {
+        path: "/food/update/:id",
+        element: <FoodUpdateForm />,
       },
       {
         path: "/orders",
@@ -62,10 +70,6 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs />,
-      },
-      {
-        path: "/profile",
-        element: <Profile />,
       },
       {
         path: "/login",

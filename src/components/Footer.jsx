@@ -1,8 +1,9 @@
 import { Logo } from "./Logo";
+import Button from "./Button";
 
 export const Footer = () => {
   return (
-    <section className="py-10 bg-gray-50 sm:pt-16 lg:pt-24">
+    <section className="py-10 bg-gray-50 sm:pt-16 lg:pt-24 mt-28">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
           <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
@@ -213,12 +214,7 @@ export const Footer = () => {
                 />
               </div>
 
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700"
-              >
-                Subscribe
-              </button>
+              <Button label="Subscribe" className="mt-3" />
             </form>
           </div>
         </div>

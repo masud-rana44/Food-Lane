@@ -2,24 +2,30 @@ import axios from "axios";
 
 export async function getFoods(currentPage, pageSize) {
   const response = await axios.get(
-    `http://localhost:5000/foods?page=${currentPage}&size=${pageSize}`
+    `https://resturent-server.vercel.app/foods?page=${currentPage}&size=${pageSize}`
   );
   return response.data;
 }
 
 export async function getFoodById(id) {
-  const response = await axios.get(`http://localhost:5000/foods/${id}`);
+  const response = await axios.get(
+    `https://resturent-server.vercel.app/foods/${id}`
+  );
   return response.data;
 }
 
 export async function getFoodByEmail(email) {
-  const response = await axios.get(`http://localhost:5000/foods/user/${email}`);
+  const response = await axios.get(
+    `https://resturent-server.vercel.app/foods/user/${email}`
+  );
   return response.data;
 }
 
 export async function getTopSellingFood() {
   try {
-    const response = await axios.get("http://localhost:5000/top/foods");
+    const response = await axios.get(
+      "https://resturent-server.vercel.app/top/foods"
+    );
     return response.data;
   } catch (error) {
     throw new Error("Top foods could not be loaded.");
@@ -27,21 +33,31 @@ export async function getTopSellingFood() {
 }
 
 export async function getFoodCount() {
-  const response = await axios.get("http://localhost:5000/count/foods");
+  const response = await axios.get(
+    "https://resturent-server.vercel.app/count/foods"
+  );
   return response.data;
 }
 
 export async function createFood(food) {
-  const response = await axios.post("http://localhost:5000/foods", food);
+  const response = await axios.post(
+    "https://resturent-server.vercel.app/foods",
+    food
+  );
   return response.data;
 }
 
 export async function updateFood(food) {
-  const response = axios.patch(`http://localhost:5000/foods/${food.id}`, food);
+  const response = axios.patch(
+    `https://resturent-server.vercel.app/foods/${food._id}`,
+    food
+  );
   return response.data;
 }
 
 export async function deleteFood(id) {
-  const response = await axios.delete(`http://localhost:5000/foods/${id}`);
+  const response = await axios.delete(
+    `https://resturent-server.vercel.app/foods/${id}`
+  );
   return response.data;
 }

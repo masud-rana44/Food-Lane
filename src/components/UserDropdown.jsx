@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 export const UserDropdown = ({ isDropdownOpen, setIsDropdownOpen }) => {
-  const { user, logOut } = useAuth();
+  const { logOut } = useAuth();
 
   const items = [
     {
       label: "My added food",
-      path: `/foods/users/${user.email}`,
+      path: `/foods/users`,
     },
     {
       label: "Add new food",

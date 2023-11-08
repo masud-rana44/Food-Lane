@@ -61,7 +61,7 @@ function RegistrationForm() {
     try {
       await registerWithEmail(email, password);
       await profileUpdate(name, url);
-      await axios.post("http://localhost:5000/users", {
+      await axios.post("https://resturent-server.vercel.app/users", {
         name,
         email,
         imageUrl: url,

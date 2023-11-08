@@ -8,7 +8,7 @@ export const Logo = () => {
       className="text-2xl font-bold text-primary flex items-center space-x-1"
     >
       <img src={logo} alt="Logo" className="h-12" />
-      <span>Food Lane</span>
+      <span className="hidden md:block">Food Lane</span>
     </Link>
   );
 };

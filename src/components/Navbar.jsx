@@ -14,7 +14,20 @@ export const Navbar = () => {
     { to: "/blogs", text: "Blogs" },
   ];
 
-  console.log(pathname);
+  const allLinks = (
+    <>
+      {links.map((link) => (
+        <li
+          key={link.to}
+          className={`font-xl font-medium hover:text-primary transition-colors}`}
+        >
+          <Link className={pathname === link.to && "text-primary"} to={link.to}>
+            {link.text}
+          </Link>
+        </li>
+      ))}
+    </>
+  );
 
   return (
     <header
@@ -26,19 +39,7 @@ export const Navbar = () => {
         <Logo />
         <nav className="space-x-10 flex items-center ">
           <ul className="flex items-center space-x-10 text-primary-dark">
-            {links.map((link) => (
-              <li
-                key={link.to}
-                className={`font-xl font-medium hover:text-primary transition-colors}`}
-              >
-                <Link
-                  className={pathname === link.to && "text-primary"}
-                  to={link.to}
-                >
-                  {link.text}
-                </Link>
-              </li>
-            ))}
+            {allLinks}
           </ul>
           {user ? (
             <User />

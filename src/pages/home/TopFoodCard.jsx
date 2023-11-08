@@ -24,7 +24,7 @@ export const TopFoodCard = ({ food }) => {
           <span>{category}</span>
         </div>
 
-        <Link to={`/foods/${_id}`}>
+        <Link to={`/foods/${_id}`} className="mx-auto">
           <button className="w-full flex items-center gap-x-2">
             <AiFillEye className="h-4 w-4" /> <span>View Details</span>
           </button>
