@@ -1,6 +1,6 @@
 <h1 align="center">Food Lane With React, Node.js, MongoDB, JWT,  Firebase</h1>
 
-<p>This is the client repository for Food Lane a Restaurant Management Website with React, React Router Dom, Node.js, MongoDB, and Firebase.</p>
+<p>This is the client site repository for Food Lane a Restaurant Management Website with React, React Router Dom, Node.js, MongoDB, and Firebase.</p>
 
 ## 📝 Features
 
