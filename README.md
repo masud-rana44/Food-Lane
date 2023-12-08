@@ -1,6 +1,6 @@
 <h1 align="center">Food Lane With React, Node.js, MongoDB, JWT,  Firebase</h1>
 
-<p>This is a repository for Food Lane a Resturent Application with React, React Router Dom, Node.js, MongoDB and Firebase.</p>
+<p>This is the client repository for Food Lane a Restaurant Management Website with React, React Router Dom, Node.js, MongoDB, and Firebase.</p>
 
 ## 📝 Features
 
@@ -16,3 +16,31 @@
 ## 🚀 Live Link
 
 [https://resturent-assignment.web.app/](https://resturent-assignment.web.app/)
+
+## 🔐 Demo Account
+
+Explore the application using these demo accounts:
+
+- **Email**: user@foodlane.com
+- **Password**: #Test1234
+
+## 💻 Technology Used
+
+The website is built using the following technologies and libraries:
+
+| Frontend         | Backend               |
+| ---------------- | --------------------- |
+| React            | Express               |
+| Axios            | MongoDB               |
+| Cloudinary-React | Mongoose              |
+| Firebase         | JWT (JSON Web Tokens) |
+| Tailwind         | Cookie-parser         |
+| React-DOM        | Dotenv                |
+| React-Hot-Toast  |                       |
+| React-Icons      |                       |
+| React-Router-DOM |                       |
+| Tanstack-Query   |                       |
+
+<h3>💖Like my work?</h3>
+
+This project needs a ⭐️ from you. Don't forget to leave a star ⭐️.
