@@ -1,4 +1,4 @@
-<h1 align="center">Food Lane With React, Node.js, MongoDB, JWT,  Firebase</h1>
+<h1 align="center">Food Lane | Restaurant Management Site</h1>
 
 <p>This is the client site repository for Food Lane a Restaurant Management Website with React, React Router Dom, Node.js, MongoDB, and Firebase.</p>
 
@@ -13,9 +13,10 @@
 - <b>Full responsivity and mobile UI: </b>The website is fully responsive, the ui is different on desktop and mobile devices.
 - <b>User friendly react toast message: </b> Get user friendly notifications for important actions.
 
-## 🚀 Live Link
+## 🚀 Important Links
 
-[https://resturent-assignment.web.app/](https://resturent-assignment.web.app/)
+- Live Website link: [https://resturent-assignment.web.app](https://resturent-assignment.web.app)
+- Server site repo link: [https://github.com/masud-rana44/foodlane-server](https://github.com/masud-rana44/foodlane-server)
 
 ## 🔐 Demo Account
 
