@@ -3,16 +3,17 @@ import { getFoodById } from "../../api/apiFood";
 import { Link, useParams } from "react-router-dom";
 import Button from "../../components/Button";
 import { Helmet } from "react-helmet";
+import { PageLoader } from "../../components/PageLoader";
 
 const FoodDetails = () => {
   const { id } = useParams();
 
-  const { data: food, isPending } = useQuery({
-    queryKey: ["food", "id"],
+  const { data: food, isLoading } = useQuery({
+    queryKey: ["food", id],
     queryFn: () => getFoodById(id),
   });
 
-  if (isPending) return <div>Loading...</div>;
+  if (isLoading) return <PageLoader />;
 
   return (
     <div className="group mt-28  rounded-xl overflow-hidden">

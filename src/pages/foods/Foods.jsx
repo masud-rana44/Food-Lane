@@ -16,12 +16,12 @@ const Foods = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   const { totalFoods } = useFoodsCount();
-  const { data: foods, isPending } = useQuery({
+  const { data: foods, isLoading } = useQuery({
     queryKey: ["foods", currentPage, pageSize],
     queryFn: () => getFoods(currentPage, pageSize),
   });
 
-  if (isPending) return <PageLoader />;
+  if (isLoading) return <PageLoader />;
 
   const totalPages = Math.ceil((totalFoods?.count || 10) / pageSize);
 
