@@ -8,7 +8,7 @@ export const FoodCard = ({ food }) => {
         <img
           src={food.imageUrl}
           alt={`Image of ${food.name}`}
-          className="h-[240px] w-full object-cover group-hover:scale-110 transition-all"
+          className="h-[220px] w-full object-cover group-hover:scale-105 transition-all duration-300"
         />
       </figure>
       <div className="flex flex-col p-4 z-10">
@@ -21,8 +21,11 @@ export const FoodCard = ({ food }) => {
           <span>{food.quantity} items</span>
         </div>
 
-        <Link to={`/foods/${food._id}`} className="mx-auto">
-          <button className="w-full flex items-center gap-x-2">
+        <Link
+          to={`/foods/${food._id}`}
+          className="mx-auto bg-dark-2 text-white py-2 rounded-sm hover:bg-primary transition w-full"
+        >
+          <button className="w-full flex items-center gap-x-2 justify-center">
             <AiFillEye className="h-4 w-4" /> <span>View Details</span>
           </button>
         </Link>

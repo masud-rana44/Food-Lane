@@ -10,7 +10,7 @@ export const Navbar = () => {
 
   const links = [
     { to: "/", text: "Home" },
-    { to: "/foods", text: "Foods" },
+    { to: "/foods", text: "All Foods" },
     { to: "/blogs", text: "Blogs" },
   ];
 
@@ -31,8 +31,8 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full h-[70px] z-10 ${
-        pathname !== "/" && "bg-white shadow-sm border-b border-gray-200"
+      className={`fixed bg-[#000]/10 top-0 left-0 w-full h-[70px] z-10 ${
+        pathname !== "/" && "bg-white shadow-sm border-b"
       }`}
     >
       <div className="container mx-auto px-3 h-full md:px-0 flex items-center justify-between">

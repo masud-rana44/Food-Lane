@@ -10,7 +10,7 @@ export const TopFoodCard = ({ food }) => {
         <img
           src={imageUrl}
           alt={`Image of ${name}`}
-          className="h-[240px] w-full object-cover group-hover:scale-105 transition-all"
+          className="h-[220px] w-full object-cover group-hover:scale-105 transition-all duration-300"
         />
       </div>
       <div className="flex flex-col p-4 bg-violet-50 z-10">
@@ -20,12 +20,15 @@ export const TopFoodCard = ({ food }) => {
           </h3>
           <span className="font-medium text-dark-3">${price}</span>
         </div>
-        <div className="flex items-center justify-between text-gray-700">
+        <div className="mb-4 flex items-center justify-between text-gray-700">
           <span>{category}</span>
         </div>
 
-        <Link to={`/foods/${_id}`} className="mx-auto">
-          <button className="w-full flex items-center gap-x-2">
+        <Link
+          to={`/foods/${_id}`}
+          className="mx-auto bg-dark-2 text-white py-2 rounded-sm hover:bg-primary transition w-full"
+        >
+          <button className="w-full flex items-center gap-x-2 justify-center">
             <AiFillEye className="h-4 w-4" /> <span>View Details</span>
           </button>
         </Link>
