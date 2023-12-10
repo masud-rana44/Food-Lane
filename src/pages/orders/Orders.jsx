@@ -5,6 +5,7 @@ import { useDeleteOrder } from "./useDeleteOrder";
 import { useOrders } from "./useOrders";
 import { BsTrash } from "react-icons/bs";
 import { PageLoader } from "../../components/PageLoader";
+import SectionHeading from "../../components/SectionHeading";
 
 const Orders = () => {
   const { orders, isPending } = useOrders();
@@ -20,16 +21,13 @@ const Orders = () => {
     );
 
   return (
-    <div className="mt-28">
+    <div className="mt-[70px]">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Food Lane &mdash; My Orders</title>
       </Helmet>
-      <h3 className="text-2xl font-bold text-center mb-8 text-dark-2">
-        My Orders
-      </h3>
-
-      <div className="container max-w-xl mx-auto px-3 md:px-0 divide-y ">
+      <SectionHeading title="My Orders" subtitle="Home/Orders" />
+      <div className="container max-w-xl mx-auto px-3 md:px-0 divide-y mt-10">
         {orders?.map((order) => (
           <div
             key={order._id}
