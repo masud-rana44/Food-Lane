@@ -7,6 +7,7 @@ import { getFoods } from "../../api/apiFood";
 import { useFoodsCount } from "./useFoodCount";
 import { EmptyMessage } from "../../components/EmptyMessage";
 import { Helmet } from "react-helmet";
+import { PageLoader } from "../../components/PageLoader";
 
 const Foods = () => {
   const pageSize = 10;
@@ -20,7 +21,7 @@ const Foods = () => {
     queryFn: () => getFoods(currentPage, pageSize),
   });
 
-  if (isPending) return <div>Loading...</div>;
+  if (isPending) return <PageLoader />;
 
   const totalPages = Math.ceil((totalFoods?.count || 10) / pageSize);
 
@@ -35,7 +36,7 @@ const Foods = () => {
 
   return (
     <div className="mt-28 container mx-auto px-3 md:px-0">
-            <Helmet>
+      <Helmet>
         <meta charSet="utf-8" />
         <title>Food Lane &mdash; Foods</title>
       </Helmet>
