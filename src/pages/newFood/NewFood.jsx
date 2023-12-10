@@ -6,6 +6,7 @@ import { useCreateFood } from "./useCreateFood";
 import { FormInput } from "../../components/FormInput";
 import Button from "../../components/Button";
 import { FormTextarea } from "../../components/FormTextarea";
+import SectionHeading from '../../components/SectionHeading'
 import { Helmet } from "react-helmet";
 
 const NewFood = () => {
@@ -56,12 +57,13 @@ const NewFood = () => {
   };
 
   return (
-    <div className="mt-28">
+    <div className="mt-[70px]">
       <Helmet>
-        <meta charSet="utf-8" />
         <title>Food Lane &mdash; Add New Food</title>
       </Helmet>
-      <form onSubmit={handleSubmit} className="max-w-5xl mx-auto space-y-4">
+
+      <SectionHeading title='Add New Food' subtitle='Home/NewFood'/>
+      <form onSubmit={handleSubmit} className="max-w-5xl mx-auto space-y-4 mt-10">
         <ImageUpload url={imageUrl} setUrl={setImageUrl} />
         <FormInput id="name" label="Food Name" />
         <FormTextarea id="description" label="Food Description" />

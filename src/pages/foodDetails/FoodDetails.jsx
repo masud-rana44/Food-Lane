@@ -23,7 +23,7 @@ const FoodDetails = () => {
         <title>Food Lane &mdash; Food Details</title>
       </Helmet>
       <SectionHeading title="Food Details" subtitle="Home/Food" />
-      <div className="container mx-auto px-3 md:px-0 flex items-center flex-col md:flex-row gap-10 md:gap-20 mt-16">
+      <div className="container mx-auto px-3 md:px-0 flex items-center flex-col md:flex-row gap-8 md:gap-20 mt-16">
         <div className="overflow-hidden flex-1">
           <img
             src={food.imageUrl}

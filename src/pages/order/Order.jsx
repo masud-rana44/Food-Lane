@@ -8,20 +8,23 @@ import { getFoodById } from "../../api/apiFood";
 import { ErrorMessage } from "../../components/ErrorMessage";
 import { PageLoader } from "../../components/PageLoader";
 import Button from "../../components/Button";
+import { useState } from "react";
+import SectionHeading from "../../components/SectionHeading";
 
 const Order = () => {
   const { id } = useParams();
+  const [quantity, setQuantity] = useState(1);
 
   const {
     data: food,
-    isPending,
+    isLoading,
     error,
   } = useQuery({
-    queryKey: ["food", "id"],
+    queryKey: ["food", id],
     queryFn: () => getFoodById(id),
   });
 
-  if (isPending) return <PageLoader />;
+  if (isLoading) return <PageLoader />;
   if (error)
     return (
       <div className="mt-20">
@@ -42,13 +45,16 @@ const Order = () => {
     );
 
   return (
-    <div className="container mx-auto px-3 md:px-0 mt-28 flex gap-10 md:gap-20">
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Food Lane &mdash; Checkout</title>
-      </Helmet>
-      <OrderForm food={food} />
-      <OrderCart food={food} />
+    <div className="mt-[70px]">
+      <SectionHeading title="Order Food" subtitle="Home/Order" />
+      <div className="container mx-auto px-3 md:px-0 mt-10 flex gap-10 md:gap-20">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Food Lane &mdash; Checkout</title>
+        </Helmet>
+        <OrderForm food={food} quantity={quantity} setQuantity={setQuantity} />
+        <OrderCart food={food} quantity={quantity} />
+      </div>
     </div>
   );
 };

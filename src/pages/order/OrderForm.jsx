@@ -5,7 +5,7 @@ import Button from "../../components/Button";
 import { useCreateOrder } from "./useCreateOrder";
 import { FormInput } from "../../components/FormInput";
 
-export const OrderForm = ({ food }) => {
+export const OrderForm = ({ food, quantity, setQuantity }) => {
   const { user } = useAuth();
 
   const { createOrder, isPending } = useCreateOrder();
@@ -63,6 +63,9 @@ export const OrderForm = ({ food }) => {
         label="Quantity"
         type="number"
         defaultValue={1}
+        min={1}
+        value={quantity}
+        onChange={(e) => setQuantity(Number(e.target.value))}
       />
       <FormInput
         id="buyerName"

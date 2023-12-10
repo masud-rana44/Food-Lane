@@ -144,7 +144,7 @@ function RegistrationForm() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full rounded-sm text-white  bg-primary py-1 "
+          className="w-full rounded-sm text-white  bg-primary hover:bg-dark-1 transition duration-300 py-2 font-medium "
         >
           Register
         </button>
@@ -161,7 +161,7 @@ function RegistrationForm() {
               onClick={handleGoogleRegistration}
               type="button"
               disabled={isLoading}
-              className="w-full justify-center flex items-center gap-x-2 bg-[#4285f4] hover:bg-[#4285f4]/90 py-1 rounded-sm"
+              className="w-full justify-center flex items-center gap-x-2 bg-[#4285f4] hover:bg-[#4285f4]/90 py-2 rounded-sm font-medium"
             >
               <AiOutlineGoogle /> Google
             </button>

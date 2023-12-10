@@ -84,7 +84,7 @@ function LoginForm() {
         <button
           disabled={isLoading}
           type="submit"
-          className="w-full rounded-sm text-white  bg-primary py-1 "
+          className="w-full rounded-sm font-medium text-white bg-primary hover:bg-dark-1 transition duration-300 py-2 "
         >
           Login
         </button>
@@ -101,7 +101,7 @@ function LoginForm() {
               onClick={handleGoogleRegistration}
               type="button"
               disabled={isLoading}
-              className="w-full justify-center flex items-center gap-x-2 bg-[#4285f4] hover:bg-[#4285f4]/90 py-1 rounded-sm"
+              className="w-full justify-center flex items-center gap-x-2 bg-[#4285f4] hover:bg-[#4285f4]/90 py-2 font-medium rounded-sm"
             >
               <AiOutlineGoogle /> Google
             </button>

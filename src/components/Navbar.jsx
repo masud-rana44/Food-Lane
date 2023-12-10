@@ -32,7 +32,7 @@ export const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full h-[70px] z-10 ${
-        pathname !== "/" && "bg-white shadow-sm border-b"
+        pathname !== "/" ? "bg-white shadow-sm border-b" : "bg-black/10"
       }`}
     >
       <div className="container mx-auto px-3 h-full md:px-0 flex items-center justify-between">
