@@ -1,12 +1,13 @@
 import { Helmet } from "react-helmet";
+import SectionHeading from "../../components/SectionHeading";
 
 const Blogs = () => {
   return (
-    <div className="mt-20 min-h-screen">
+    <div className="mt-[70px] min-h-screen">
       <Helmet>
-        <meta charSet="utf-8" />
         <title>Food Lane &mdash; Blogs</title>
       </Helmet>
+      <SectionHeading title="Blog Details" subtitle="Home/Shop" />
 
       <div className="max-w-7xl mx-auto py-12 sm:px-6 lg:px-8">
         <article className="mb-12">

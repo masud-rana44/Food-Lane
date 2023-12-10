@@ -31,7 +31,7 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed bg-[#000]/10 top-0 left-0 w-full h-[70px] z-10 ${
+      className={`fixed top-0 left-0 w-full h-[70px] z-10 ${
         pathname !== "/" && "bg-white shadow-sm border-b"
       }`}
     >

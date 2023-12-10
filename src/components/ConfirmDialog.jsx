@@ -18,7 +18,7 @@ export const ConfirmDialog = ({ children, onDelete }) => {
       {isModalOpen && (
         <div
           id="popup-modal"
-          className="fixed top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full w-full"
+          className="bg-black/40 flex items-center justify-center fixed top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full w-full"
         >
           <div className="relative w-full max-w-md max-h-full">
             <div className="relative bg-white rounded-lg shadow ">
